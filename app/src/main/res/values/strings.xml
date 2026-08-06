@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CollegeXP</string>
+    <string name="create_collegexp_account">Create CollegeXP Account</string>
+    <string name="student_email">Student Email</string>
+    <string name="create_account">Create Account</string>
+    <string name="password">Password</string>
+</resources>
