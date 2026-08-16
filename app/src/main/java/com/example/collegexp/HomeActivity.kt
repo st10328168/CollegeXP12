@@ -71,7 +71,7 @@ class HomeActivity : AppCompatActivity() {
                 }
 
                 R.id.profile -> {
-                    // TODO: Open ProfileActivity
+                    startActivity(Intent(this, ProfileActivity::class.java))
                     true
                 }
 
