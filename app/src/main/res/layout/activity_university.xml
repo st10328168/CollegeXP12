@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F8FC"
+    android:padding="20dp">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/universityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Explore Universities"
+        android:textColor="#171A21"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:fontFamily="sans" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Find the right university for your future."
+        android:textColor="#777D8A"
+        android:textSize="15sp" />
+
+    <!-- Search -->
+    <EditText
+        android:id="@+id/universitySearch"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/search_background"
+        android:hint="Search universities..."
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:textColor="#171A21"
+        android:textColorHint="#9297A3"
+        android:textSize="15sp"
+        android:singleLine="true" />
+
+    <!-- University Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/universitiesRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:paddingBottom="20dp" />
+
+</LinearLayout>

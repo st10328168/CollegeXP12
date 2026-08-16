@@ -48,10 +48,37 @@
             android:name=".BottomMenuActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+        <activity android:name=".ExploreActivity" />
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".TrendingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
 
         <activity
-            android:name=".ExploreActivity"/>
+            android:name=".EventDetailsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
+        <activity android:name=".CartActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".UniversitiesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".SocietiesActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

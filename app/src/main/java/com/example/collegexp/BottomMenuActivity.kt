@@ -41,7 +41,7 @@ class BottomMenuActivity : AppCompatActivity() {
                     true
                 }
                 R.id.profile -> {
-                    // Replace with your ProfileActivity when you create it
+                    startActivity(Intent(this, ProfileActivity::class.java))
                     true
                 }
                 else -> false

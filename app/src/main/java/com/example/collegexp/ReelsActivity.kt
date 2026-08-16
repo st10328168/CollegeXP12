@@ -64,7 +64,15 @@ class ReelsActivity : AppCompatActivity() {
             val exploreButton = findViewById<TextView>(R.id.btnExplore)
             exploreButton.setOnClickListener {
                 startActivity(Intent(this, ExploreActivity::class.java))
+                val videoResId = intent.getIntExtra("videoResId", 0)
+
+                if (videoResId != 0) {
+                    val uri = Uri.parse("android.resource://$packageName/$videoResId")
+                    videoView.setVideoURI(uri)
+                    videoView.start()
+                }
             }
+
         }
     }
 }
