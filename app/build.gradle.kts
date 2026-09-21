@@ -53,6 +53,9 @@ dependencies {
     // Image Loading
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    // API connection
+    implementation("com.squareup.retrofit2:retrofit:3.0.0")
+    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
     // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
