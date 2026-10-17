@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#080810"
-    android:fillViewport="true">
+    android:background="#121212">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,246 +11,56 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <!-- College XP Header -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="🎓 College XP"
-                android:textColor="#FFFFFF"
-                android:textSize="25sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/btnCart"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
-                android:gravity="center"
-                android:text="🛒"
-                android:textSize="27sp"
-                android:clickable="true"
-                android:focusable="true" />
-
-        </LinearLayout>
-
-
-        <!-- Profile Picture -->
-
-        <TextView
+        <ImageView
+            android:id="@+id/imgProfile"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/profile_circle"
-            android:gravity="center"
-            android:text="👤"
-            android:textSize="55sp" />
-
-
-        <!-- Learner Name -->
+            android:src="@drawable/ic_launcher_foreground"
+            android:background="@drawable/ic_launcher_background"
+            android:layout_marginTop="30dp"/>
 
         <TextView
-            android:id="@+id/tvName"
-            android:layout_width="match_parent"
+            android:id="@+id/txtProfileName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
             android:text="Your Name"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:textStyle="bold" />
-
-
-        <!-- Username -->
-
-        <TextView
-            android:id="@+id/tvUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@username"
-            android:textColor="#B7B1D9"
-            android:textSize="16sp" />
-
-
-        <!-- Learner Label -->
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/purple_pill"
-            android:gravity="center"
-            android:paddingLeft="22dp"
-            android:paddingRight="22dp"
-            android:text="🎓  College XP Learner"
-            android:textColor="#D8CEFF"
-            android:textSize="14sp" />
-
-
-        <!-- EDIT PROFILE -->
+            android:layout_marginTop="10dp"/>
 
         <TextView
+            android:id="@+id/txtProfileEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="student@university.edu"
+            android:textColor="#AAAAAA"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="30dp"/>
+
+        <Button
             android:id="@+id/btnEditProfile"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/profile_button"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:text="✎  Edit Profile"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true" />
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:layout_marginBottom="10dp"/>
 
-
-        <!-- SETTINGS -->
-
-        <TextView
+        <Button
             android:id="@+id/btnSettings"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/profile_button_outline"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:text="⚙  Settings"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:clickable="true"
-            android:focusable="true" />
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:layout_marginBottom="10dp"/>
 
-
-        <!-- REWARDS + ACHIEVEMENTS -->
-
-        <LinearLayout
+        <Button
+            android:id="@+id/btnLogout"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal">
-
-            <!-- Rewards -->
-
-            <TextView
-                android:id="@+id/btnRewards"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="6dp"
-                android:layout_weight="1"
-                android:background="@drawable/rewards_card"
-                android:gravity="center_vertical"
-                android:padding="18dp"
-                android:text="🏆&#10;&#10;Learner Rewards&#10;&#10;Earn points. Get rewards.  →"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
-
-
-            <!-- Achievements -->
-
-            <TextView
-                android:id="@+id/btnAchievements"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginStart="6dp"
-                android:layout_weight="1"
-                android:background="@drawable/achievement_card"
-                android:gravity="center_vertical"
-                android:padding="18dp"
-                android:text="🏅&#10;&#10;Learner Achievements&#10;&#10;Track your progress.  →"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:clickable="true"
-                android:focusable="true" />
-
-        </LinearLayout>
-
-
-        <!-- PROGRESS -->
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/progress_card"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="Your Progress&#10;&#10;&#10;📚              ⭐              🏆&#10;&#10;12                8              450&#10;&#10;Courses       Achievements    Reward Points"
-            android:textColor="#FFFFFF"
-            android:textSize="15sp"
-            android:textStyle="bold" />
-
-
-        <!-- Bottom navigation -->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="25dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="⌂&#10;Home"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="📖&#10;Courses"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="🛒&#10;Cart"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="🎁&#10;Rewards"
-                android:textColor="#FFFFFF"
-                android:textSize="13sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="👤&#10;Profile"
-                android:textColor="#9B6CFF"
-                android:textSize="13sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:backgroundTint="#FF5252"/>
 
     </LinearLayout>
 

@@ -2,98 +2,95 @@ package com.example.collegexp
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.TextView
+import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileActivity : AppCompatActivity() {
 
-    private lateinit var tvName: TextView
-    private lateinit var tvUsername: TextView
-    private lateinit var btnEditProfile: TextView
-    private lateinit var btnSettings: TextView
-    private lateinit var btnCart: TextView
-    private lateinit var btnRewards: TextView
-    private lateinit var btnAchievements: TextView
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        // Connect XML views
-        tvName = findViewById(R.id.tvName)
-        tvUsername = findViewById(R.id.tvUsername)
+        auth = FirebaseAuth.getInstance()
 
-        btnEditProfile = findViewById(R.id.btnEditProfile)
-        btnSettings = findViewById(R.id.btnSettings)
-        btnCart = findViewById(R.id.btnCart)
-        btnRewards = findViewById(R.id.btnRewards)
-        btnAchievements = findViewById(R.id.btnAchievements)
+        findViewById<Button>(R.id.btnEditProfile).setOnClickListener {
 
-        // Load connected learner information
-        loadLearnerInformation()
+            val preferences = getSharedPreferences(
+                "CollegeXPProfile",
+                MODE_PRIVATE
+            )
 
-        // Edit Profile
-        btnEditProfile.setOnClickListener {
-            val intent = Intent(this, EditProfileActivity::class.java)
+            val studentId = preferences.getLong(
+                "student_id",
+                -1L
+            )
+
+            if (studentId == -1L) {
+
+                Toast.makeText(
+                    this,
+                    "Student profile not found.",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                return@setOnClickListener
+            }
+
+            val intent = Intent(
+                this,
+                EditProfileActivity::class.java
+            )
+
+            intent.putExtra(
+                "student_id",
+                studentId
+            )
+
             startActivity(intent)
         }
 
-        // Settings
-        btnSettings.setOnClickListener {
-            val intent = Intent(this, SettingsActivity::class.java)
-            startActivity(intent)
+        findViewById<Button>(R.id.btnSettings).setOnClickListener {
+            startActivity(
+                Intent(
+                    this,
+                    SettingsActivity::class.java
+                )
+            )
         }
 
-        // CENTRAL CART
-        // Every cart button in College XP should eventually
-        // point to this same CartActivity.
-        btnCart.setOnClickListener {
-            val intent = Intent(this, CartActivity::class.java)
+        findViewById<Button>(R.id.btnLogout).setOnClickListener {
+
+            auth.signOut()
+
+            getSharedPreferences(
+                "CollegeXPProfile",
+                MODE_PRIVATE
+            )
+                .edit()
+                .clear()
+                .apply()
+
+            Toast.makeText(
+                this,
+                "Logged out successfully",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            val intent = Intent(
+                this,
+                LoginActivity::class.java
+            )
+
+            intent.flags =
+                Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
+
             startActivity(intent)
+            finish()
         }
-
-        // Rewards
-        btnRewards.setOnClickListener {
-            val intent = Intent(this, RewardsActivity::class.java)
-            startActivity(intent)
-        }
-
-        // Achievements
-        btnAchievements.setOnClickListener {
-            val intent = Intent(this, AchievementsActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun loadLearnerInformation() {
-
-        val sharedPreferences =
-            getSharedPreferences("CollegeXP_User", MODE_PRIVATE)
-
-        val name = sharedPreferences.getString(
-            "user_name",
-            "Your Name"
-        )
-
-        val username = sharedPreferences.getString(
-            "username",
-            "@username"
-        )
-
-        tvName.text = name
-        tvUsername.text = username
-
-        // These also change automatically when the
-        // connected learner changes.
-        btnEditProfile.text = "✎  Edit Profile  ($name)"
-        btnSettings.text = "⚙  Settings  ($name)"
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        // Refresh name whenever the user comes back
-        // from Edit Profile.
-        loadLearnerInformation()
     }
 }
